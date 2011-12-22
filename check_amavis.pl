@@ -74,6 +74,8 @@ $smtp->close();
 
 if ($result =~/2.7.[01] Ok, discarded/) {
 	print "OK - All fine\n"
+	exit $STATES{OK};
 } else {
 	print "CRITICAL - amavisd-new returned $result";
+	exit $STATES{CRITICAL};
 }
