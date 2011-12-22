@@ -8,7 +8,6 @@ License:	?
 Group:		Networking
 # Source0Download:	http://exchange.nagios.org/components/com_mtree/attachment.php?link_id=1257&cf_id=24#/%{plugin}.pl
 Source0:	%{plugin}.pl
-# Source0-md5:	d6505313047810f0c907b784d70f31d7
 Source1:	%{plugin}.cfg
 URL:		http://exchange.nagios.org/directory/Plugins/Anti-2DVirus/Amavis/check_amavis/details
 BuildRequires:	rpm-perlprov >= 4.1-13
