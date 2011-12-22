@@ -10,6 +10,14 @@ my $from = '';
 my $to = '';
 my $debug = 0;
 
+my %STATES = (
+	"OK" => 0,
+	"WARNING" => 1,
+	"CRITICAL" => 2,
+	"UNKNOWN" => 3,
+	"DEPENDENT" => 4,
+);
+
 $result = GetOptions (
 	"server|s=s"    =>      \$server,
 	"port|p=s"      =>      \$port,
@@ -19,7 +27,8 @@ $result = GetOptions (
 );
 
 if (!$server || !$from) {
-	die ("Please specify server, from\n");
+	print "Please specify server, from\n";
+	exit $STATES{UNKNOWN};
 }
 
 if (!$to) {
@@ -52,7 +61,7 @@ my $smtp = new Net::SMTP(
 
 if (!$smtp) {
 	print "CRITICAL - amavisd-new server unreachable\n";
-	exit;
+	exit $STATES{CRITICAL};
 }
 
 $smtp->mail($from);
