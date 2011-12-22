@@ -19,15 +19,15 @@ my %STATES = (
 );
 
 $result = GetOptions (
-	"server|s=s"    =>      \$server,
-	"port|p=s"      =>      \$port,
-	"from|f=s"      =>      \$from,
-	"debug|d"      =>      \$debug,
-	"to|t=s"        =>      \$to,
+	"server|s=s"    => \$server,
+	"port|p=s"      => \$port,
+	"from|f=s"      => \$from,
+	"debug|d"       => \$debug,
+	"to|t=s"        => \$to,
 );
 
 if (!$server || !$from) {
-	print "Please specify server, from\n";
+	print "ERROR: Please specify --server, --from\n";
 	exit $STATES{UNKNOWN};
 }
 
@@ -40,7 +40,7 @@ X5O!P%@AP[4\PZX54(P^)7CC)7}$EICAR-STANDARD-ANTIVIRUS-TEST-FILE!$H+H*
 EOF
 
 my $top = MIME::Entity->build(
-	Type    =>"multipart/mixed",
+	Type    => "multipart/mixed",
 	From    => $from,
 	To      => $to,
 	Subject => "EICAR test",
@@ -48,9 +48,9 @@ my $top = MIME::Entity->build(
 );
 
 $top->attach(
-	Data    => $EICAR,
-	Type    => "application/x-msdos-program",
-	Encoding        => "base64",
+	Data        => $EICAR,
+	Type        => "application/x-msdos-program",
+	Encoding    => "base64",
 );
 
 my $smtp = new Net::SMTP(
@@ -73,9 +73,9 @@ my $result = $smtp->message();
 $smtp->close();
 
 if ($result =~/2.7.[01] Ok, discarded/) {
-	print "OK - All fine\n"
+	print "OK - All fine\n";
 	exit $STATES{OK};
 } else {
-	print "CRITICAL - amavisd-new returned $result";
+	print "CRITICAL - amavisd-new returned $result\n";
 	exit $STATES{CRITICAL};
 }
