@@ -2,8 +2,8 @@
 %include	/usr/lib/rpm/macros.perl
 Summary:	Nagios plugin to check amavisd-new daemon
 Name:		nagios-plugin-%{plugin}
-Version:	0.1
-Release:	0.1
+Version:	1.1
+Release:	1
 License:	?
 Group:		Networking
 # Source0Download:	http://exchange.nagios.org/components/com_mtree/attachment.php?link_id=1257&cf_id=24#/%{plugin}.pl
