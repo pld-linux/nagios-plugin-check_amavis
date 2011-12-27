@@ -1,10 +1,9 @@
 #!/usr/bin/perl
 # Downloaded from exchange.nagios.org
 # URL: http://exchange.nagios.org/directory/Plugins/Anti-2DVirus/Amavis/check_amavis/details
-# Download: http://exchange.nagios.org/components/com_mtree/attachment.php?link_id=1257&cf_id=24#/%{plugin}.pl
 #
 # Maintained later on by Elan Ruusamäe <glen@pld-linux.org>
-# http://cvs.pld-linux.org/cgi-bin/viewvc.cgi/cvs/packages/nagios-plugin-check_amavis/
+# http://cvs.pld-linux.org/packages/nagios-plugin-check_amavis/
 # v1.1, 2011-12-22
 
 use Getopt::Long;
