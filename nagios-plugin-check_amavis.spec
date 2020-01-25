@@ -1,5 +1,4 @@
 %define		plugin	check_amavis
-%include	/usr/lib/rpm/macros.perl
 Summary:	Nagios plugin to check amavisd-new daemon
 Name:		nagios-plugin-%{plugin}
 Version:	1.1
